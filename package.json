@@ -1,0 +1,24 @@
+{
+  "name": "projectzerowaste",
+  "version": "1.0.0",
+  "description": "A project in the course information design about zero waste for the Lectoraat Urban Analytics",
+  "main": "./lib/server.js",
+  "scripts": {
+    "nodemon": "nodemon ./lib/server.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/iSirThijs/projectZeroWaste.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/iSirThijs/projectZeroWaste/issues"
+  },
+  "homepage": "https://github.com/iSirThijs/projectZeroWaste#readme",
+  "devDependencies": {
+    "eslint": "^6.7.2",
+    "nodemon": "^2.0.1"
+  }
+}
