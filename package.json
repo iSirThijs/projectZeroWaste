@@ -5,7 +5,9 @@
   "main": "./lib/server.js",
   "scripts": {
     "nodemon": "nodemon ./lib/server.js",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "mongoStart": "mongod -f mongod.conf",
+    "mongoStop": "mongo admin --eval 'db.shutdownServer()'"
   },
   "repository": {
     "type": "git",
@@ -20,5 +22,12 @@
   "devDependencies": {
     "eslint": "^6.7.2",
     "nodemon": "^2.0.1"
+  },
+  "dependencies": {
+    "body-parser": "^1.19.0",
+    "dotenv": "^8.2.0",
+    "express": "^4.17.1",
+    "express-session": "^1.17.0",
+    "mongoose": "^5.8.0"
   }
 }
