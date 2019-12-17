@@ -4,10 +4,11 @@
   "description": "A project in the course information design about zero waste for the Lectoraat Urban Analytics",
   "main": "./lib/server.js",
   "scripts": {
-    "nodemon": "nodemon ./lib/server.js",
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "lint-backend": "node_modules/.bin/eslint ./lib/*.js ./lib/*/*.js",
+    "lint-frontend": "node_modules/.bin/eslint ./public/scripts/*.js ./public/scripts/*.mjs",
+    "start": "nodemon ./lib/server.js",
     "mongoStart": "mongod -f mongod.conf",
-    "mongoStop": "mongo admin --eval 'db.shutdownServer()'"
+    "mongoStop": "mongo admin --port 30000 --eval 'db.shutdownServer()'"
   },
   "repository": {
     "type": "git",
@@ -24,10 +25,14 @@
     "nodemon": "^2.0.1"
   },
   "dependencies": {
+    "bcrypt": "^3.0.7",
     "body-parser": "^1.19.0",
     "dotenv": "^8.2.0",
+    "ejs": "^3.0.1",
     "express": "^4.17.1",
     "express-session": "^1.17.0",
-    "mongoose": "^5.8.0"
+    "mongoose": "^5.8.0",
+    "winston": "^3.2.1",
+    "winston-daily-rotate-file": "^4.3.1"
   }
 }
