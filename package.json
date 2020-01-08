@@ -42,6 +42,7 @@
     "@controllers": "lib/controllers",
     "@views": "lib/views",
     "@models": "lib/models",
+    "@routes": "lib/routes",
     "@utilities": "lib/utilities"
   }
 }
