@@ -164,10 +164,6 @@ h2 {
 	background-color: var(--status-warning);
 }
 
-.block.requirements ul {
-
-}
-
 .job {
 	width: 100%;
 	min-height: 100%;
@@ -200,6 +196,10 @@ h2 {
 	font-weight: bolder;
 }
 
+.job.empty p {
+	width: 100%;
+}
+
 #failed > article {
 	background-color: var(--status-failed);
 }
@@ -218,6 +218,11 @@ h2 {
 #queue > article {
 	background-color: var(--status-warning);
 }
+
+#queue > article.empty {
+	background-color: white;
+}
+
 
 .job a {
 	display: flex;
