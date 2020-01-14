@@ -4,8 +4,10 @@
   "description": "A project in the course information design about zero waste for the Lectoraat Urban Analytics",
   "main": "./lib/server.js",
   "scripts": {
+    "postinstall": "link-module-alias",
     "lint-backend": "node_modules/.bin/eslint ./lib/*.js ./lib/*/*.js",
     "lint-frontend": "node_modules/.bin/eslint ./public/scripts/*.js ./public/scripts/*.mjs",
+    "prestart": "link-module-alias",
     "start": "nodemon ./lib/server.js",
     "mongoStart": "mongod -f mongod.conf",
     "mongoStop": "mongo admin --port 30000 --eval 'db.shutdownServer()'"
@@ -22,11 +24,13 @@
   "homepage": "https://github.com/iSirThijs/projectZeroWaste#readme",
   "devDependencies": {
     "eslint": "^6.7.2",
+    "link-module-alias": "^1.2.0",
     "nodemon": "^2.0.1"
   },
   "dependencies": {
     "bcrypt": "^3.0.7",
     "body-parser": "^1.19.0",
+    "d3": "^5.15.0",
     "dotenv": "^8.2.0",
     "ejs": "^3.0.1",
     "express": "^4.17.1",
@@ -35,5 +39,12 @@
     "multer": "^1.4.2",
     "winston": "^3.2.1",
     "winston-daily-rotate-file": "^4.3.1"
+  },
+  "_moduleAliases": {
+    "#controllers": "lib/controllers",
+    "#views": "lib/views",
+    "#models": "lib/models",
+    "#routes": "lib/routes",
+    "#utilities": "lib/utilities"
   }
 }
