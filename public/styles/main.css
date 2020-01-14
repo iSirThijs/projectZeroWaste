@@ -8,8 +8,12 @@
 	--accent2: #553BFF;
 	--base-text: #4d4d4d;
 	--headings: 'Roboto Slab', Verdana, Geneva, Tahoma, sans-serif;
-	--text: 'Roboto', Verdana, Geneva, Tahoma, sans-serif
+	--text: 'Roboto', Verdana, Geneva, Tahoma, sans-serif;
 }
+html { 
+	height: 100%;
+}
+
 body {
 	width: 100%;
 	margin: 0 auto;
@@ -18,6 +22,12 @@ body {
 	background: var(--bg);
 	color: var(--base-text);
 	box-sizing: border-box;
+	height: 100%;
+
+}
+
+body#data {
+	height: auto;
 }
 
 body * {
@@ -26,7 +36,8 @@ body * {
 
 /* Site heading */
 body > header {
-	max-width: 90rem;
+	max-width: 95rem;
+	max-height: 15%;
 	display: flex;
 	flex-flow: row;
 	justify-content: space-between;
@@ -73,15 +84,13 @@ nav > a::after {
 /* Page context */
 /* main */
 main {
-	margin-top: 2rem;
 	max-width: 80rem;
-	margin: 0 auto
+	margin: 1rem auto;
 }
 
 /* Page Heading */
 /* Page-title */
 main > header {
-	margin-top: 1.5rem;
 	display: flex;
 	flex-flow: column-reverse;
 }
@@ -89,14 +98,15 @@ main > header {
 h1 {
 	font-weight: bold;
 	font-family: var(--headings);
-	font-size: 2em;
-	margin-top: 1rem;
-	margin-bottom: 0;
+	font-size: 1.4rem;
+	margin: 0;
 }
 
 h1 + a:link,
 h1 + a:visited,
 h1 + a {
+	margin-bottom: 1rem;
+	font-size: .9em;
 	color: inherit;
 	text-decoration-color: var(--accent1);
 	text-decoration-thickness: 2px;
@@ -116,9 +126,71 @@ h1 + a::before {
 
 /* Section-title */
 h2 {
-	margin-bottom: 0.5em;
+	font-size: 1.3rem;
 	font-weight: normal;
+	margin: 0.2rem 0 0;
 }
+
+p {
+	margin: 0.2em 0 0;
+}
+
+/* Chart */
+#visualization-chart {
+	max-width: 90rem;
+	height: 85%;
+	display: grid;
+	grid-template-columns: repeat(9, 1fr);
+	grid-template-rows: 2rem 1fr 1fr 1fr 1fr 1fr;
+	gap: 1em;
+	grid-template-areas: 
+		"header header header header header header header areas areas"
+		"info info info chart chart chart chart chart chart"
+		"compare compare compare chart chart chart chart chart chart"
+		"compare compare compare chart chart chart chart chart chart"
+		"category category category chart chart chart chart chart chart"
+		"category category category chart chart chart chart chart chart";
+}
+
+#visualization-chart > section {
+	background: white;
+	padding: 0.5rem;
+	box-shadow: 5px 5px 20px -15px rgba(0,0,0,0.3);
+	
+}
+
+#visualization-chart > header {
+	grid-area: header;
+}
+
+#visualization-chart > div {
+	grid-area: areas;
+	display: flex;
+	align-items: center;
+	place-self: center end;
+	width: 100%;
+	justify-content: flex-end;
+}
+
+
+
+#visualization-chart > section#info {
+	grid-area: info;
+}
+
+#visualization-chart > section#compare {
+	grid-area: compare;
+}
+
+#visualization-chart > section#categories {
+	grid-area: category;
+	height: 100%;
+}
+
+#visualization-chart > section#chart {
+	grid-area: chart;
+}
+
 
 /* Dataset-manager */
 #dataset-manager {
@@ -129,6 +201,11 @@ h2 {
 #dataset-manager > section {
 	display: flex;
 	flex-flow: column;
+}
+
+#dataset-manager h2 {
+	margin-top: 2rem;
+	margin-bottom: 0.5rem;
 }
 
 #upload > div {
