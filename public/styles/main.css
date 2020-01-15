@@ -4,21 +4,30 @@
 	--status-failed: #f7aaa5;
 	--status-okay: #a1d8b1;
 	--status-warning: #f5e49f;
-	--accent: rgb(247,193,9);
-	--accent-alt: #553BFF;
+	--accent1: rgb(247,193,9);
+	--accent2: #553BFF;
 	--base-text: #4d4d4d;
-	--title-site: 'Roboto', 'Open Sans', Verdana, Geneva, Tahoma, sans-serif;
-	--title-page: 'Roboto', 'Open Sans', Verdana, Geneva, Tahoma, sans-serif;
-	--text: 'Roboto', 'Open Sans', Verdana, Geneva, Tahoma, sans-serif
+	--headings: 'Roboto Slab', Verdana, Geneva, Tahoma, sans-serif;
+	--text: 'Roboto', Verdana, Geneva, Tahoma, sans-serif;
 }
+html { 
+	height: 100%;
+}
+
 body {
-	max-width: 80rem;
+	width: 100%;
 	margin: 0 auto;
 	padding: 1rem;
 	font-family: var(--text);
 	background: var(--bg);
 	color: var(--base-text);
 	box-sizing: border-box;
+	height: 100%;
+
+}
+
+body#data {
+	height: auto;
 }
 
 body * {
@@ -26,29 +35,32 @@ body * {
 }
 
 /* Site heading */
-#header-site {
+body > header {
+	max-width: 95rem;
+	max-height: 15%;
 	display: flex;
 	flex-flow: row;
 	justify-content: space-between;
-	align-items: center;
+	align-items: stretch;
+	margin: 0 auto;
 }
 
-#logo {
+body > header > * {
 	display: flex;
 	flex-flow: row;
+	align-items: center;
 }
 
 #logo > p {
 	font-size: 2em;
-	/* font-weight: bold; */
-	font-family: var(--title-site);
+	font-family: var(--headings);
 }
 
 #logo > img {
 	margin-right: .5rem
 }
 
-#logout {
+nav > a {
 	text-decoration: none;
 	color: inherit;
 	/* background-color: var(--accent-alt); */
@@ -57,46 +69,128 @@ body * {
 	/* color: var(--bg); */
 }
 
-#logout::after {
-	content: '>';
-	margin-left: 0.5rem;
-	font-size: 120%;
+nav > a:hover,
+nav > a:active {
+	text-decoration: underline var(--accent2) 2px;
+}
+
+nav > a::after {
+	content: ' >';
 	font-weight: bolder;
-	color: var(--accent);
+	color: var(--accent1);
 }
 
 
 /* Page context */
 /* main */
 main {
-	width: 100%;
+	max-width: 80rem;
+	margin: 1rem auto;
 }
 
 /* Page Heading */
 /* Page-title */
-h1 {
-	font-weight: normal;
-	font-size: 2em;
-	margin-bottom: .2em;
+main > header {
+	display: flex;
+	flex-flow: column-reverse;
 }
 
+h1 {
+	font-weight: bold;
+	font-family: var(--headings);
+	font-size: 1.4rem;
+	margin: 0;
+}
+
+h1 + a:link,
+h1 + a:visited,
 h1 + a {
+	margin-bottom: 1rem;
+	font-size: .9em;
 	color: inherit;
-	text-decoration-color: var(--accent);
+	text-decoration-color: var(--accent1);
+	text-decoration-thickness: 2px;
+}
+
+h1 + a:hover,
+h1 + a:active {
+	text-decoration-color: var(--accent2);
 	text-decoration-thickness: 2px;
 }
 
 h1 + a::before {
 	content: '< ';
-	color: var(--accent);
+	color: var(--accent1);
 	font-weight: bolder;
 }
 
 /* Section-title */
 h2 {
-	margin-bottom: 0.5em;
+	font-size: 1.3rem;
 	font-weight: normal;
+	margin: 0.2rem 0 0;
 }
+
+p {
+	margin: 0.2em 0 0;
+}
+
+/* Chart */
+#visualization-chart {
+	max-width: 90rem;
+	height: 85%;
+	display: grid;
+	grid-template-columns: repeat(9, 1fr);
+	grid-template-rows: 2rem 1fr 1fr 1fr 1fr 1fr;
+	gap: 1em;
+	grid-template-areas: 
+		"header header header header header header header areas areas"
+		"info info info chart chart chart chart chart chart"
+		"compare compare compare chart chart chart chart chart chart"
+		"compare compare compare chart chart chart chart chart chart"
+		"category category category chart chart chart chart chart chart"
+		"category category category chart chart chart chart chart chart";
+}
+
+#visualization-chart > section {
+	background: white;
+	padding: 0.5rem;
+	box-shadow: 5px 5px 20px -15px rgba(0,0,0,0.3);
+	
+}
+
+#visualization-chart > header {
+	grid-area: header;
+}
+
+#visualization-chart > div {
+	grid-area: areas;
+	display: flex;
+	align-items: center;
+	place-self: center end;
+	width: 100%;
+	justify-content: flex-end;
+}
+
+
+
+#visualization-chart > section#info {
+	grid-area: info;
+}
+
+#visualization-chart > section#compare {
+	grid-area: compare;
+}
+
+#visualization-chart > section#categories {
+	grid-area: category;
+	height: 100%;
+}
+
+#visualization-chart > section#chart {
+	grid-area: chart;
+}
+
 
 /* Dataset-manager */
 #dataset-manager {
@@ -107,6 +201,11 @@ h2 {
 #dataset-manager > section {
 	display: flex;
 	flex-flow: column;
+}
+
+#dataset-manager h2 {
+	margin-top: 2rem;
+	margin-bottom: 0.5rem;
 }
 
 #upload > div {
@@ -120,6 +219,7 @@ h2 {
 	flex: 1 1 auto;
 	max-width: 33%;
 	background-color: white;
+	box-shadow: 5px 5px 20px -15px rgba(0,0,0,0.3);
 	padding: .5rem;
 }
 
@@ -130,7 +230,7 @@ h2 {
 
 .block.upload > input {
 	margin-bottom: 1rem;
-	border: 3px dotted var(--accent-alt);
+	border: 3px dotted var(--accent2);
 	border-radius: 10px;
 	padding: .5em;
 } 
@@ -138,7 +238,7 @@ h2 {
 .block.upload > input:focus,
 .block.upload > input[type=file] + label:focus
 {
-	border: 3px solid var(--accent-alt);
+	border: 3px solid var(--accent2);
 }
 
 .block.upload > input[type=file] + label.js {
@@ -146,13 +246,13 @@ h2 {
 	display: flex;
 	align-items: center;
 	text-align: center;
-	border: 3px dotted var(--accent-alt);
+	border: 3px dotted var(--accent2);
 	margin-bottom: 1rem;
 	border-radius: 10px;
 }
 
 .block.upload button {
-	background-color: var(--accent-alt);
+	background-color: var(--accent2);
 	border: none;
 	color: white;
 	font-size: 1em;
@@ -172,6 +272,7 @@ h2 {
 	justify-content: flex-start;
 	padding: .5rem;	
 	background: white;
+	box-shadow: 5px 5px 20px -15px rgba(0,0,0,0.3);
 	margin-bottom: .4rem;
 	align-items: center
 }
@@ -184,6 +285,7 @@ h2 {
 }
 
 .job.header-row {
+	box-shadow: none;
 	height: 100%;
 	background: none;
 	margin-bottom: 0;
