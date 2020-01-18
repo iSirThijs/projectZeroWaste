@@ -172,8 +172,6 @@ p {
 	justify-content: flex-end;
 }
 
-
-
 #visualization-chart > section#info {
 	grid-area: info;
 }
@@ -189,6 +187,12 @@ p {
 
 #visualization-chart > section#chart {
 	grid-area: chart;
+	display: flex;
+}
+
+#chart > div:first-child {
+	width: 100%;
+	height: 100%;
 }
 
 
