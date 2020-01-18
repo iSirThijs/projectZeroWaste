@@ -144,7 +144,7 @@ p {
 	grid-template-rows: 2rem 1fr 1fr 1fr 1fr 1fr;
 	gap: 1em;
 	grid-template-areas: 
-		"header header header header header header header areas areas"
+		"header header header header header header header mapping mapping"
 		"info info info chart chart chart chart chart chart"
 		"compare compare compare chart chart chart chart chart chart"
 		"compare compare compare chart chart chart chart chart chart"
@@ -164,7 +164,7 @@ p {
 }
 
 #visualization-chart > div {
-	grid-area: areas;
+	grid-area: mapping;
 	display: flex;
 	align-items: center;
 	place-self: center end;
@@ -351,3 +351,11 @@ p {
 section {
 	background: blue;
 } */
+
+#visualization-chart .hidden {
+	display: none;
+}
+
+#visualization-chart .visible {
+	display: initial;
+}
