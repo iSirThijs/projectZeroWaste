@@ -185,12 +185,12 @@ p {
 	height: 100%;
 }
 
-#visualization-chart > section#chart {
+#visualization-chart > section#map {
 	grid-area: chart;
 	display: flex;
 }
 
-#chart > div:first-child {
+#map > div:first-child {
 	width: 100%;
 	height: 100%;
 }
