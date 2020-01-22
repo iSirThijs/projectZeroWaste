@@ -18,8 +18,17 @@ async function data(mapping) {
 	return response.json();
 }
 
+async function amsData(mapping) {
+	let url = baseUrl + 'ams';
+	const request = new Request(url);
+	const response = await fetch(request);
+
+	return response.json();
+}
+
 
 export {
 	mapData,
-	data
+	data,
+	amsData
 };

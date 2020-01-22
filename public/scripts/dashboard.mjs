@@ -1,5 +1,6 @@
 // map update and listeners
 import { updateMap } from './modules/map.mjs';
+// import { updateCategories } from './modules/barcharts.mjs';
 import * as api from './modules/api.mjs';
 
 createInteractiveMap();
@@ -10,6 +11,10 @@ function createInteractiveMap() {
 		stadsdelen: api.mapData('stadsdelen'),
 		wijken: api.mapData('wijken'),
 		buurten: api.mapData('buurten'),
+	};
+
+	const categoryData = {
+		amsterdam: api.amsData()
 	};
 
 	let dayButtonsData = [
@@ -69,6 +74,7 @@ function createInteractiveMap() {
 		const day = d3.event.target.value;
 		history.pushState('', '', `context?mapping=${mapping}&day=${day}`);
 		updateMap(await data[mapping], {day, mapping});
+		// updateCategories(await categoryData.amsterdam, {day});
 	});
 }
 
