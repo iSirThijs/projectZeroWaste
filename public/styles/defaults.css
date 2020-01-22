@@ -6,6 +6,7 @@
 	--accent1: rgb(247,193,9);
 	--accent2: #553BFF;
 	--accent3: rgb(189,177,245);
+	--accent4: rgb(224, 217, 252);
 	--base-text: #4d4d4d;
 	--headings: 'Roboto Slab', Verdana, Geneva, Tahoma, sans-serif;
 	--text: 'Roboto', Verdana, Geneva, Tahoma, sans-serif;
@@ -79,7 +80,9 @@ p {
 }
 
 /* Link Buttons */
-a.buttons {
+a.buttons,
+a.buttons:link,
+a.buttons:visited {
 	font-size: 80%;
 
 	/* Placing */
@@ -91,6 +94,11 @@ a.buttons {
 	border: solid 3px var(--accent3);
 	border-radius: 15px ;
 
+}
+
+a.buttons:hover,
+a.buttons:active {
+	background: var(--accent4);
 }
 
 
