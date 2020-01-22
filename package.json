@@ -48,5 +48,8 @@
     "#models": "lib/models",
     "#routes": "lib/routes",
     "#utilities": "lib/utilities"
+  },
+  "nodemonConfig": {
+    "ignore": ["public/*"]
   }
 }
