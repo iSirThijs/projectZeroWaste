@@ -78,6 +78,24 @@ p {
 	margin: 0.2em 0 0;
 }
 
+/* Link Buttons */
+a.buttons {
+	font-size: 80%;
+
+	/* Placing */
+	padding: .4em .7em;
+	margin: 0.1em;
+
+	text-decoration: none;
+	color: inherit;
+	border: solid 3px var(--accent3);
+	border-radius: 15px ;
+
+}
+
+
+
+
 /* Site Heading */
 body > header {
 	/* Sizing */
