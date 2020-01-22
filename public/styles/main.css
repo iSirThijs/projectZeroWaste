@@ -80,7 +80,7 @@ h1 + a::before {
 h2 {
 	font-size: 1.3rem;
 	font-weight: normal;
-	margin: 0.2rem 0 0;
+	margin: 0.2rem 0 ;
 }
 
 p {
@@ -226,6 +226,19 @@ main > header h1 {
 	flex: 1 1 100%;
 }
 
+/* JS warning */
+.no-js.visible.warning {
+	opacity: .5;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	height: 100%;
+	text-align: center;
+	margin: 1rem;
+	background-color: var(--status-warning);
+	border: solid 1px var(--accent1);
+	border-radius: 10px;
+}
 
 /* Dashboard Page */
 
@@ -257,6 +270,12 @@ main > header h1 {
 
 .map > div {
 	height: 2rem;
+}
+
+svg text {
+	font-size: 300%;
+	font-family: var(--text);
+	fill: var(--base-text);
 }
 
 
