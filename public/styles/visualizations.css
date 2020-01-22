@@ -1,0 +1,132 @@
+#container {
+	/* Sizing */
+	/* max-height: 100%; */
+
+	display: grid;
+	grid-template-columns:1fr 1fr 1fr 1fr;
+	grid-template-rows: auto;
+	gap: .8em;
+	grid-template-areas: 
+		"info map map map"
+		"compare map map map"
+		"categories map map map";
+}
+
+#info { grid-area: info}
+#compare { grid-area: compare}
+#categories { grid-area: categories}
+#map { grid-area: map}
+
+svg {
+	font-size: 300%;
+}
+
+#container > section {
+
+	padding: .5rem;
+
+	/* Styling */
+	background-color: white;
+	box-shadow: 5px 5px 20px -15px rgba(0,0,0,0.3);
+}
+
+#map {
+	display: flex;
+	flex-flow: row;
+	align-items: stretch;
+}
+
+#map > div:first-child {
+	width: 100%;
+	height: 100%;
+	display: flex;
+	flex-flow: column;
+}
+
+#map > div:first-child header {
+	display: flex;
+	justify-content: space-between;
+}
+
+#map > div:first-child header div {
+	display: flex;
+	padding: 0 0.4rem;
+
+}
+
+#map > div:last-child {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	
+}
+
+#map > div:last-child a,
+#map > div:last-child a:link,
+#map > div:last-child a:visited {
+	padding: 2em 0;
+	width: 2rem;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	border: none;
+	background-color: var(--accent4);
+	transition: all .2s ease-in;
+}
+
+#map > div:last-child a:active,
+#map > div:last-child a:hover { 
+	background-color: var(--accent3);
+	padding: 4em 0;
+}
+
+
+#map > div:last-child p {
+	display: inline-block;
+	transform: rotate(-90deg);
+}
+
+#map > div svg {
+	flex: 1 2 auto;
+}
+
+
+/* >= Tablet portrait */
+@media (min-width: 481px) and (max-width: 1024px) and (orientation: portrait) {
+
+	#container {
+		grid-template-areas:
+			"info info info info"
+			"compare compare categories categories"
+			"map map map map";
+	}
+
+	#map {
+		flex-flow: column;
+	}
+
+	#map > div:last-child {
+		display: flex;
+		justify-content: center;
+		align-items: center;
+	}
+
+	#map > div:last-child a,
+	#map > div:last-child a:link,
+	#map > div:last-child a:visited {
+		height: 2rem;
+		padding: 0 3em;
+	} 
+	
+	#map > div:last-child p {
+		transform: none;
+	}
+	
+	#map > div:last-child a:active,
+	#map > div:last-child a:hover { 
+		background-color: var(--accent3);
+		padding: 0 5em;
+	}
+	
+
+}
