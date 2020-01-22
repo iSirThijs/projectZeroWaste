@@ -268,27 +268,34 @@ main > header h1 {
 	align-items: center;
 }
 
-.map > div {
-	height: 2rem;
-}
-
 svg text {
 	font-size: 300%;
 	font-family: var(--text);
 	fill: var(--base-text);
 }
 
+/* compare */
+#categories1 {
+	grid-area: categories1;
+}
+
+#categories2 {
+	grid-area: categories2;
+}
 
 /* Datasetmanager */
 
+.compare > header,
 main#dataset-manager > header {
 	flex-flow: column;
 	
 }
+.compare > header h1,
 main#dataset-manager > header h1 {
 	order: 2;
 }
 
+.compare > header a,
 main#dataset-manager > header a {
 	order: 1;
 }
@@ -424,9 +431,6 @@ main#dataset-manager > header a {
 	height: 50%;
 }
 
-
-
-
 /*****************/
 /* Media Queries */
 /*****************/
@@ -466,21 +470,21 @@ main#dataset-manager > header a {
 /* Tablet Portrait */
 @media (min-width: 481px) and (max-width: 767px) and (orientation: portrait) {
 	body {
-		max-height: none;
+		max-height: 100%;
 		height: auto;
 		overflow: initial;
 	}
 
 	main#dashboard {
 			/* Grid */
+		max-height: 100%;
 		display: grid;
 		grid-template-columns:1fr 1fr 1fr 1fr;
-		grid-template-rows: 2rem 7rem 12rem 3rem 1fr;
+		grid-template-rows: 2rem 1fr 3rem 2fr;
 		gap: .8em;
 		grid-template-areas: 
 			"header header header header"
-			"info info info info"
-			"compare compare categories categories"
+			"compare compare categories1 categories2"
 			"mapping mapping mapping mapping"
 			"map map map map";
 		}
@@ -512,23 +516,66 @@ main#dataset-manager > header a {
 			/* Grid */
 		display: grid;
 		grid-template-columns:1fr 1fr 1fr;
-		grid-template-rows: 2rem  3rem 1fr 12rem;
+		grid-template-rows: 2rem .5fr 1fr 1.5fr;
 		gap: .8em;
 		grid-template-areas: 
-			"header header header"
-			"mapping mapping mapping"
-			"map map map"
-			"info compare categories";
+			"header header mapping"
+			"info map map"
+			"compare map map"
+			"categories map map";
 		}
+
+
+	main#dashboard.compare {
+		display: grid;
+		grid-template-columns:1fr 1fr 1fr;
+		grid-template-rows: 2rem .5fr 1fr 1.5fr;
+		gap: .8em;
+		grid-template-areas: 
+			"header header mapping"
+			"map map map"
+			"categories1 compare categories2";
+	}
+
+	#mapping {
+		margin: 0;
+	}
 
 	main#dashboard > *,
 	#mapping.buttons {
 		display: flex;
 	}
-
+	
 	#map {
 		flex-flow: row;
-		justify-content: space-around;
+		justify-content: stretch;
+		align-items: stretch;
+	}
+
+	#map > div:first-child {
+		flex: 1 1 100%;
+	}
+
+	#map .buttons {
+		justify-content: flex-start;
+		height: 2rem;
+	}
+
+	.compare #map > div {
+		flex: 1 1 100%;
+	}
+
+	#compare-link {
+		width: 3rem;
+		display: flex;
+		justify-content: flex-start;
+		align-items: center;
+	}
+
+	#compare-link a  {
+		display: block;
+		height: 2rem;
+		transform: rotate(-90deg);
 	}
 
 	body > header > nav {
@@ -564,6 +611,7 @@ main#dataset-manager > header a {
 			"map map map map";
 		}
 
+
 	main#dashboard > *,
 	#mapping.buttons {
 		display: flex;
@@ -588,6 +636,12 @@ main#dataset-manager > header a {
 		overflow: initial;
 	}
 
+	body#compare-body {
+		max-height: 100%;
+		height: 100%;
+		overflow: hidden;
+	}
+
 	body > header {
 		width: 100%;
 		max-width: 70rem;
@@ -603,13 +657,31 @@ main#dataset-manager > header a {
 			/* Grid */
 		display: grid;
 		grid-template-columns:1fr 1fr 1fr;
-		grid-template-rows: 2rem 1fr 12rem;
+		grid-template-rows: 2rem .5fr 1fr 1.5fr;
+		gap: .8em;
+		grid-template-areas: 
+			"header header mapping"
+			"info map map"
+			"compare map map"
+			"categories map map";
+		}
+
+	main#dashboard.compare {
+		max-height: 100%;
+		display: grid;
+		grid-template-columns:1fr 1fr 1fr;
+		grid-template-rows: 3.5rem .5fr 1fr 1.5fr;
 		gap: .8em;
 		grid-template-areas: 
 			"header header mapping"
 			"map map map"
-			"info compare categories";
-		}
+			"categories1 compare categories2";
+	}
+
+	main#dashboard #mapping.buttons {
+		height: 2rem;
+		place-self: end;
+	}
 
 	main#dashboard > *,
 	#mapping.buttons {
@@ -622,7 +694,35 @@ main#dataset-manager > header a {
 
 	#map {
 		flex-flow: row;
-		justify-content: space-around;
+		justify-content: stretch;
+		align-items: stretch;
+	}
+
+	#map > div:first-child {
+		flex: 1 1 100%;
+	}
+	
+	.compare #map > div {
+		flex: 1 1 100%;
+	}
+
+
+	#map .buttons {
+		justify-content: flex-start;
+		height: 2rem;
+	}
+
+	#compare-link {
+		width: 3rem;
+		display: flex;
+		justify-content: flex-start;
+		align-items: center;
+	}
+
+	#compare-link a  {
+		display: block;
+		height: 2rem;
+		transform: rotate(-90deg);
 	}
 
 	body > header > nav {
