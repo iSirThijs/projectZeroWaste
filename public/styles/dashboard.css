@@ -1,0 +1,141 @@
+@media (min-width: 40rem) {
+	main#dashboard {
+		display: grid;
+		grid-template-columns: repeat(9, 1fr);
+		grid-template-rows: 2rem 1fr 1fr 1fr 1fr 1fr;
+		gap: 1em;
+		grid-template-areas: 
+		"header header header header header header mapping mapping mapping"
+		"info info info chart chart chart chart chart chart"
+		"compare compare compare chart chart chart chart chart chart"
+		"compare compare compare chart chart chart chart chart chart"
+		"category category category chart chart chart chart chart chart"
+		"category category category chart chart chart chart chart chart";
+	}
+}
+
+#dashboard * {
+	max-width: inherit;
+	max-height: inherit;
+}
+
+#dashboard > header {
+	grid-area: header;
+}
+
+	background: white;
+	padding: 0.5rem;
+	box-shadow: 5px 5px 20px -15px rgba(0,0,0,0.3);
+	
+}
+
+#dashboard > div {
+	grid-area: mapping;
+	display: flex;
+	align-items: center;
+	place-self: center end;
+	width: 100%;
+	justify-content: flex-end;
+}
+
+#dashboard > section#info {
+	grid-area: info;
+}
+
+#dashboard > section#compare {
+	grid-area: compare;
+}
+
+#dashboard > section#categories {
+	grid-area: category;
+}
+
+#dashboard > section#map {
+	grid-area: chart;
+	display: flex;
+	flex-flow: column;
+	justify-content: stretch;
+}
+
+.map {
+	display: flex;
+	flex-flow: column;
+}
+
+.map > div {
+	flex: 0 0 auto;
+	/* margin-top: 1rem; */
+	display: flex;
+	justify-content: space-between ;
+	/* width: 100%; */
+	/* padding: .5em; */
+}
+
+.map:first-child {
+	border-bottom: dotted 4px var(--bg);
+	margin-bottom: .5rem;
+}
+
+
+/* @media (min-width: 60rem) {
+	.map:last-child {
+		display: none;
+	}
+
+	.map:first-child {
+		border: none;
+		margin: 0;
+	}
+}
+ */
+
+
+
+/* 
+#map > div:first-child {
+	width: 100%;
+	height: 100%;
+} */
+/* 
+#map > div {
+	display: flex;
+	flex-flow: column;
+}
+
+
+
+
+#visualization-chart .hidden {
+	display: none;
+}
+
+#visualization-chart .visible {
+	display: initial;
+}
+
+
+main.small-screen {
+	display: none;
+}
+
+
+@media (max-width: 40rem) {
+	main#visualization-chart.large-screen {
+		display: none;
+	}
+
+	nav.large-screen {
+		display: none;
+	}
+
+	main.small-screen {
+		background-color: white;
+		display: flex;
+		flex-flow: column;
+		justify-content: center;
+		height: 100%;
+		text-align: center;
+	}
+}
+
+@media (max-width: ) */
