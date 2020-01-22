@@ -17,6 +17,9 @@
 #categories { grid-area: categories}
 #map { grid-area: map}
 
+svg {
+	font-size: 300%;
+}
 
 #container > section {
 
@@ -52,30 +55,29 @@
 }
 
 #map > div:last-child {
-	padding: 16rem 0;
-	transition: all .2s ease-in;
-}
-#map > div:last-child:hover{
-	padding: 12rem 0;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	
 }
 
 #map > div:last-child a,
 #map > div:last-child a:link,
 #map > div:last-child a:visited {
-	/* font-weight: bolder; */
+	padding: 2em 0;
 	width: 2rem;
 	display: flex;
-	height: 100%;
 	justify-content: center;
 	align-items: center;
 	border: none;
 	background-color: var(--accent4);
-	transition: inherit;
+	transition: all .2s ease-in;
 }
 
 #map > div:last-child a:active,
 #map > div:last-child a:hover { 
 	background-color: var(--accent3);
+	padding: 4em 0;
 }
 
 
@@ -103,13 +105,28 @@
 		flex-flow: column;
 	}
 
-	#map > div:last-child a {
-		width: 100%;
+	#map > div:last-child {
+		display: flex;
+		justify-content: center;
+		align-items: center;
+	}
+
+	#map > div:last-child a,
+	#map > div:last-child a:link,
+	#map > div:last-child a:visited {
 		height: 2rem;
+		padding: 0 3em;
 	} 
 	
 	#map > div:last-child p {
 		transform: none;
 	}
+	
+	#map > div:last-child a:active,
+	#map > div:last-child a:hover { 
+		background-color: var(--accent3);
+		padding: 0 5em;
+	}
+	
 
 }

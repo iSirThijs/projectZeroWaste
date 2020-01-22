@@ -179,6 +179,11 @@ main > header {
 }
 
 
+/*  JS hooks */
+main .no-js.hidden {
+	display: none !important;
+}
+
 /* media queries */
 
 /* Mobile - disables the app */
