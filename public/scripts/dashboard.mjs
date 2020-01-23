@@ -76,11 +76,14 @@ function createInteractiveMap() {
 	let mappingButtons = mappingFilter.selectAll('.mapping');
 
 	mappingButtons.on('click', async () => {
-		const day1 = d3.select('#map1').attr('data-day');
-		const day2 = d3.select('#map2').attr('data-day');
 		const mapping = d3.event.target.value;
+		const day1 = d3.select('#map1').attr('data-day');
 		updateMap(await data[mapping], {day: day1, mapping, id: '#map1'});
-		updateMap(await data[mapping], {day: day2, mapping, id: '#map2'});
+		
+		const day2 = d3.select('#map2');
+		if(day2._groups[0]) {
+			updateMap(await data[mapping], {day: day2.attr('data-day'), mapping, id: '#map2'});
+		}
 	});
 
 	let dayButtonsMap1 = dayButtonsMap1Div.selectAll('.days');
