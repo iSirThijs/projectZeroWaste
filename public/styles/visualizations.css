@@ -36,34 +36,47 @@ svg {
 	align-items: stretch;
 }
 
-#map > div:first-child {
+#map > div {
 	width: 100%;
 	height: 100%;
 	display: flex;
 	flex-flow: column;
 }
 
-#map > div:first-child header {
+#map > div header {
 	display: flex;
 	justify-content: space-between;
 }
 
-#map > div:first-child header div {
+#map > div header div {
 	display: flex;
 	padding: 0 0.4rem;
 
 }
 
-#map > div:last-child {
-	display: flex;
-	justify-content: center;
-	align-items: center;
-	
+#map > div.compare-link {
+	width: auto;
+	height: auto;
 }
 
-#map > div:last-child a,
-#map > div:last-child a:link,
-#map > div:last-child a:visited {
+div.compare-link header {
+	display: flex;
+	justify-content: space-between;
+}
+
+div.compare-link header div {
+	display: flex;
+	padding: 0 0.4rem;
+}
+
+div.compare-link{
+	justify-content: center;
+	align-items: center;
+}
+
+div.compare-link a,
+div.compare-link a:link,
+div.compare-link a:visited {
 	padding: 2em 0;
 	width: 2rem;
 	display: flex;
@@ -74,14 +87,13 @@ svg {
 	transition: all .2s ease-in;
 }
 
-#map > div:last-child a:active,
-#map > div:last-child a:hover { 
+div.compare-link a:active,
+div.compare-link a:hover { 
 	background-color: var(--accent3);
 	padding: 4em 0;
 }
 
-
-#map > div:last-child p {
+div.compare-link p {
 	display: inline-block;
 	transform: rotate(-90deg);
 }
@@ -105,25 +117,25 @@ svg {
 		flex-flow: column;
 	}
 
-	#map > div:last-child {
+	div.compare-link {
 		display: flex;
 		justify-content: center;
 		align-items: center;
 	}
 
-	#map > div:last-child a,
-	#map > div:last-child a:link,
-	#map > div:last-child a:visited {
+	div.compare-linka,
+	div.compare-link a:link,
+	div.compare-link a:visited {
 		height: 2rem;
 		padding: 0 3em;
 	} 
 	
-	#map > div:last-child p {
+	div.compare-link p {
 		transform: none;
 	}
 	
-	#map > div:last-child a:active,
-	#map > div:last-child a:hover { 
+	div.compare-link a:active,
+	div.compare-link a:hover { 
 		background-color: var(--accent3);
 		padding: 0 5em;
 	}
