@@ -191,8 +191,7 @@ main {
 	align-items: stretch;
 }
 
-main > *,
-#mapping.buttons {
+main > * {
 	display: none;
 }
 

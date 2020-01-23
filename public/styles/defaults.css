@@ -110,6 +110,7 @@ body > header {
 
 	/* Placing */
 	padding: .5em 0;
+	margin-bottom: .7rem;
 
 	/* Flex parent */
 	display: flex;
@@ -168,14 +169,28 @@ main {
 
 /* Page heading */
 main > header {
-	/* Sizing */
 	height: 3em;
+	display: flex;
+	justify-content: space-between;
+	align-items: stretch;
+	margin-bottom: 1rem;
+}
+
+
+main > header > div{
+	/* Sizing */
+	
 
 	/* Flex parent */
 	display: flex;
 	flex-flow: column-reverse;
 	justify-content: flex-start;
 	
+}
+
+main > header > div:last-child {
+	flex-flow: row;
+	align-items: flex-end;
 }
 
 
