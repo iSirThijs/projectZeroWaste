@@ -29,12 +29,27 @@ function createInteractiveMap() {
 	];
 	let mappingButtonsData = ['Stadsdelen', 'Wijken', 'Buurten'];
 	
-	let mapfilters = d3.select('#map-filters');
+	let daysMap1 = d3.select('#days-map1');
+	let daysMap2 = d3.select('#days-map2');
+	let mappingFilter = d3.select('#mapping');
 	
-	let dayButtonsDiv = mapfilters.append('div');
-	let mappingButtonsDiv = mapfilters.append('div');
+	let dayButtonsMap1Div = daysMap1.append('div');
+	let dayButtonsMap2Div = daysMap2.append('div');
+	let mappingButtonsDiv = mappingFilter.append('div');
 
-	dayButtonsDiv.selectAll('button')
+	dayButtonsMap1Div.selectAll('button')
+		.data(dayButtonsData)
+		.enter()
+		.append('button')
+		.text((d) => d[0])	
+		.attr('type', 'button')
+		.attr('class', 'buttons')
+		.attr('class', 'days')
+		.attr('value', d => d[1])
+		.attr('type', 'button')
+		.attr('name', d => d[1]);
+
+	dayButtonsMap2Div.selectAll('button')
 		.data(dayButtonsData)
 		.enter()
 		.append('button')
@@ -58,22 +73,31 @@ function createInteractiveMap() {
 		.attr('type', 'button')
 		.attr('name', d => d.toLowerCase());
 
-	let mappingButtons = mapfilters.selectAll('.mapping');
+	let mappingButtons = mappingFilter.selectAll('.mapping');
 
 	mappingButtons.on('click', async () => {
-		const day = d3.select('#map1').attr('data-day');
+		const day1 = d3.select('#map1').attr('data-day');
+		const day2 = d3.select('#map2').attr('data-day');
 		const mapping = d3.event.target.value;
-		history.pushState('', '', `context?mapping=${mapping}&day=${day}`);
-		updateMap(await data[mapping], {day, mapping});
+		updateMap(await data[mapping], {day: day1, mapping, id: '#map1'});
+		updateMap(await data[mapping], {day: day2, mapping, id: '#map2'});
 	});
 
-	let dayButtons = mapfilters.selectAll('.days');
+	let dayButtonsMap1 = dayButtonsMap1Div.selectAll('.days');
 
-	dayButtons.on('click', async () => {
+	dayButtonsMap1.on('click', async () => {
 		const mapping = d3.select('#map1').attr('data-mapping');
 		const day = d3.event.target.value;
-		history.pushState('', '', `context?mapping=${mapping}&day=${day}`);
-		updateMap(await data[mapping], {day, mapping});
+		updateMap(await data[mapping], {day, mapping, id: '#map1'});
+		// updateCategories(await categoryData.amsterdam, {day});
+	});
+
+	let dayButtonsMap2 = dayButtonsMap2Div.selectAll('.days');
+
+	dayButtonsMap2.on('click', async () => {
+		const mapping = d3.select('#map2').attr('data-mapping');
+		const day = d3.event.target.value;
+		updateMap(await data[mapping], {day, mapping, id: '#map2'});
 		// updateCategories(await categoryData.amsterdam, {day});
 	});
 }

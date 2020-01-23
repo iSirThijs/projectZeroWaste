@@ -1,4 +1,4 @@
-export function updateMap(data, {day, mapping, collectionCompany = 'all'}) {
+export function updateMap(data, {day, mapping, collectionCompany = 'all', id}) {
 
 	let extent = d3.extent(data.features, (d) => {
 		let computations = d.properties.computations;
@@ -29,8 +29,7 @@ export function updateMap(data, {day, mapping, collectionCompany = 'all'}) {
 		
 	const path = d3.geoPath().projection(projection);
 
-
-	let svg = d3.select('#map1')
+	let svg = d3.select(id)
 		.attr('data-day', day)
 		.attr('data-mapping', mapping);
 
@@ -38,7 +37,7 @@ export function updateMap(data, {day, mapping, collectionCompany = 'all'}) {
 	let paths = svg.selectAll('path')
 		.data(data.features, function(d) {
 			if(d) return d.properties.Buurt_code || d.properties.Buurtcombinatie_code || d.properties.Stadsdeel_code;
-			else  return d3.select(this).attr('id');
+			else return d3.select(this).attr('id');
 		});
 
 	// Exit
